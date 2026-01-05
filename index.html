@@ -1,0 +1,367 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lake Shore Legends</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<style>
+:root{
+  --orange:#e35802;
+  --blue:#58c2f7;
+  --navy:#123053;
+  --cream:#fcf2e8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:var(--cream);
+  color:var(--navy);
+}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+header{
+  position:fixed;top:0;left:0;right:0;
+  background:linear-gradient(180deg, rgba(18,48,83,.96), rgba(18,48,83,.82));
+  backdrop-filter: blur(8px);
+  z-index:50;
+}
+.nav{
+  max-width:1440px;margin:auto;
+  height:110px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;
+}
+.nav img{height:102px}
+.nav-links a{
+  margin-left:36px;
+  font-weight:800;
+  color:#fff;
+  letter-spacing:.6px;
+  font-size:14px;
+  text-transform:uppercase;
+}
+
+/* HERO */
+.hero{
+  margin-top:110px;
+  height:92vh;
+  position:relative;
+  overflow:hidden;
+}
+.hero video{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+}
+.hero::after{
+  content:"";
+  position:absolute;inset:0;
+  z-index:1;
+  background:
+    radial-gradient(1200px 700px at 18% 55%, rgba(18,48,83,.62) 0%, rgba(18,48,83,.35) 45%, rgba(18,48,83,0) 72%),
+    linear-gradient(90deg, rgba(18,48,83,.78) 0%, rgba(18,48,83,.42) 38%, rgba(18,48,83,.12) 56%, rgba(18,48,83,0) 76%);
+}
+.hero::before{
+  content:"";
+  position:absolute;left:0;right:0;bottom:0;
+  height:220px;z-index:2;
+  background:linear-gradient(to bottom, rgba(252,242,232,0), rgba(252,242,232,1));
+}
+.hero-inner{
+  position:relative;z-index:3;
+  height:100%;display:flex;align-items:flex-end;
+  padding:0 0 13vh 0;
+}
+.hero-content{
+  width:min(820px, 92vw);
+  margin-left:6%;color:#fff;
+}
+.hero-title{
+  font-weight:900;line-height:1.03;
+  font-size:clamp(44px,5.6vw,74px);
+}
+.hero-title .dev{color:var(--blue)}
+.hero-sub{margin-top:16px;font-size:18px;max-width:640px}
+
+/* MISSION */
+.section-gap{height:120px;background:var(--cream)}
+.mission-band{background:var(--navy)}
+.mission{max-width:1500px;margin:auto;padding:0 48px}
+.mission-card{display:grid;grid-template-columns:1fr 1fr;min-height:520px}
+.mission-text{padding:90px 90px 90px 0;color:#fff}
+.mission-text h2{font-size:42px;margin-bottom:26px}
+.mission-text p{font-size:18px;line-height:1.7}
+.mission-text a{
+  display:inline-block;margin-top:34px;
+  padding:14px 28px;background:var(--orange);
+  color:#fff;font-weight:900;
+}
+
+/* OPTION B: FULL-WIDTH PHOTO STRIP */
+.photo-strip{
+  width:100%;
+  display:flex;
+  gap:0;
+}
+.photo-strip img{
+  width:25%;
+  height:70vh;
+  object-fit:cover;
+  transition:transform .6s ease;
+}
+.photo-strip img:hover{
+  transform:scale(1.03);
+}
+
+/* FOOTER */
+.footer{
+  background:var(--navy);
+  color:#fff;
+  padding:90px 48px;
+}
+.footer-inner{
+  max-width:1500px;margin:auto;
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  align-items:center;
+}
+.footer-logo img{height:76px}
+.footer-center{text-align:center;font-size:14px}
+.footer-right{text-align:right}
+.footer-right a{margin-left:20px;font-size:22px;color:#fff}
+
+@media(max-width:1000px){
+  .mission-card{grid-template-columns:1fr}
+  .photo-strip{flex-direction:column}
+  .photo-strip img{width:100%;height:50vh}
+  .footer-inner{grid-template-columns:1fr;text-align:center;gap:26px}
+  .footer-right{text-align:center}
+}
+
+/* PROGRAM STATS STRIP */
+.stats-strip{
+  background: var(--cream);
+  padding: 64px 48px;
+}
+.stats-inner{
+  max-width:1500px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+  align-items:center;
+}
+.stat{
+  position:relative;
+  padding: 6px 0;
+}
+.stat:not(:last-child)::after{
+  content:"";
+  position:absolute;
+  right:-14px;
+  top:6px;
+  bottom:6px;
+  width:1px;
+  background: rgba(18,48,83,.14);
+}
+.stat-num{
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  font-size: clamp(44px, 5vw, 72px);
+  line-height: 1;
+  color: var(--navy);
+}
+.stat-label{
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(18,48,83,.78);
+}
+@media(max-width:1000px){
+  .stats-strip{padding:48px 22px}
+  .stats-inner{grid-template-columns:1fr}
+  .stat:not(:last-child)::after{display:none}
+}
+
+
+/* === STATS POP UPGRADE === */
+.stat{
+  padding: 26px 26px;
+  border-radius: 0;
+  background: rgba(255,255,255,0.42);
+  border: 1px solid rgba(18,48,83,.10);
+  box-shadow: 0 18px 48px rgba(18,48,83,.08);
+}
+.stat-num{
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  font-size: clamp(48px, 4.8vw, 74px);
+  line-height: .95;
+  color: var(--navy);
+  text-shadow: 0 10px 28px rgba(18,48,83,.14);
+}
+.stat-num .suffix{
+  color: var(--orange);
+  margin-left: 3px;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <img src="assets/logo.png">
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="teams.html">Teams</a>
+      <a href="training.html">Training</a>
+      <a href="alumni.html">Alumni</a>
+      <a href="merch.html">Merch</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <video autoplay muted loop playsinline>
+    <source src="assets/hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-title">
+        Hype.<br><span class="dev">Development.</span><br>Standards.
+      </div>
+      <div class="hero-sub">
+        A modern AAU program built on skill work, accountability, and competitive environments that translate to real games.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-gap"></div>
+
+<section class="mission-band">
+  <div class="mission">
+    <div class="mission-card">
+      <div class="mission-text">
+        <h2>LAKE SHORE LEGENDS MISSION</h2>
+        <p>
+          Lake Shore Legends is built on a foundation of hard work, discipline, and passion for the game.
+          Through basketball, we develop athletes by emphasizing skill development, accountability,
+          and competitive standards that translate beyond the court.
+        </p>
+        <a href="about.html">ABOUT THE PROGRAM</a>
+      </div>
+      <div class="mission-image">
+        <img src="assets/photo2.jpg" style="width:100%;height:100%;object-fit:cover">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM STATS (scroll-count) -->
+<section class="stats-strip" aria-label="Program statistics">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-num" data-target="6" data-suffix="+">0</div>
+      <div class="stat-label">Teams active</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="120" data-suffix="+">0</div>
+      <div class="stat-label">Training sessions per year</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num" data-target="40" data-suffix="+">0</div>
+      <div class="stat-label">Alumni in college programs</div>
+    </div>
+  </div>
+</section>
+
+<!-- OPTION B PHOTO STRIP -->
+<section class="photo-strip">
+  <img src="assets/photo1.jpg">
+  <img src="assets/photo2.jpg">
+  <img src="assets/photo3.jpg">
+  <img src="assets/photo4.jpg">
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="assets/logo.png">
+    </div>
+    <div class="footer-center">
+      © 2025 Lake Shore Legends Basketball<br>
+      coachgiopag@gmail.com · (224) 425-9490
+    </div>
+    <div class="footer-right">
+      <a href="mailto:coachgiopag@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      <a href="javascript:void(0)" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="javascript:void(0)" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+<script>
+(() => {
+  const nums = Array.from(document.querySelectorAll('.stat-num[data-target]'));
+  if (!nums.length) return;
+
+  const DURATION = 1100;
+  const INTERVAL = 5000;
+
+  const format = (n) => {
+    return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
+  function animate(el){
+    const target = parseFloat(el.dataset.target || "0");
+    const suffix = el.dataset.suffix || "";
+    const start = performance.now();
+
+    function tick(now){
+      const p = Math.min(1, (now - start) / DURATION);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const value = target * eased;
+      el.innerHTML = format(value) + '<span class="suffix">' + suffix + '</span>';
+      if (p < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function runAll(){
+    nums.forEach(el => animate(el));
+  }
+
+  let started = false;
+  const section = document.querySelector('.stats-strip');
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !started){
+        started = true;
+        runAll();
+        setInterval(runAll, INTERVAL);
+      }
+    });
+  }, { threshold: 0.4 });
+
+  if (section) io.observe(section);
+})();
+</script>
+
+</body>
+</html>

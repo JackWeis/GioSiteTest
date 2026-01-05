@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alumni | Lake Shore Legends</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+<style>
+
+:root{
+  --orange:#e35802;
+  --blue:#58c2f7;
+  --navy:#123053;
+  --cream:#fcf2e8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:var(--cream);
+  color:var(--navy);
+}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+header{
+  position:fixed;top:0;left:0;right:0;
+  background:linear-gradient(180deg, rgba(18,48,83,.96), rgba(18,48,83,.82));
+  backdrop-filter: blur(8px);
+  z-index:50;
+}
+.nav{
+  max-width:1440px;margin:auto;
+  height:110px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;
+}
+.nav img{height:102px}
+.nav-links a{
+  margin-left:36px;
+  font-weight:800;
+  color:#fff;
+  letter-spacing:.6px;
+  font-size:14px;
+  text-transform:uppercase;
+}
+
+/* HERO */
+.hero{
+  margin-top:110px;
+  height:92vh;
+  position:relative;
+  overflow:hidden;
+}
+.hero video{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+}
+.hero::after{
+  content:"";
+  position:absolute;inset:0;
+  z-index:1;
+  background:
+    radial-gradient(1200px 700px at 18% 55%, rgba(18,48,83,.62) 0%, rgba(18,48,83,.35) 45%, rgba(18,48,83,0) 72%),
+    linear-gradient(90deg, rgba(18,48,83,.78) 0%, rgba(18,48,83,.42) 38%, rgba(18,48,83,.12) 56%, rgba(18,48,83,0) 76%);
+}
+.hero::before{
+  content:"";
+  position:absolute;left:0;right:0;bottom:0;
+  height:220px;z-index:2;
+  background:linear-gradient(to bottom, rgba(252,242,232,0), rgba(252,242,232,1));
+}
+.hero-inner{
+  position:relative;z-index:3;
+  height:100%;display:flex;align-items:flex-end;
+  padding:0 0 13vh 0;
+}
+.hero-content{
+  width:min(820px, 92vw);
+  margin-left:6%;color:#fff;
+}
+.hero-title{
+  font-weight:900;line-height:1.03;
+  font-size:clamp(44px,5.6vw,74px);
+}
+.hero-title .dev{color:var(--blue)}
+.hero-sub{margin-top:16px;font-size:18px;max-width:640px}
+
+/* MISSION */
+.section-gap{height:120px;background:var(--cream)}
+.mission-band{background:var(--navy)}
+.mission{max-width:1500px;margin:auto;padding:0 48px}
+.mission-card{display:grid;grid-template-columns:1fr 1fr;min-height:520px}
+.mission-text{padding:90px 90px 90px 0;color:#fff}
+.mission-text h2{font-size:42px;margin-bottom:26px}
+.mission-text p{font-size:18px;line-height:1.7}
+.mission-text a{
+  display:inline-block;margin-top:34px;
+  padding:14px 28px;background:var(--orange);
+  color:#fff;font-weight:900;
+}
+
+/* OPTION B: FULL-WIDTH PHOTO STRIP */
+.photo-strip{
+  width:100%;
+  display:flex;
+  gap:0;
+}
+.photo-strip img{
+  width:25%;
+  height:70vh;
+  object-fit:cover;
+  transition:transform .6s ease;
+}
+.photo-strip img:hover{
+  transform:scale(1.03);
+}
+
+/* FOOTER */
+.footer{
+  background:var(--navy);
+  color:#fff;
+  padding:90px 48px;
+}
+.footer-inner{
+  max-width:1500px;margin:auto;
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  align-items:center;
+}
+.footer-logo img{height:76px}
+.footer-center{text-align:center;font-size:14px}
+.footer-right{text-align:right}
+.footer-right a{margin-left:20px;font-size:22px;color:#fff}
+
+@media(max-width:1000px){
+  .mission-card{grid-template-columns:1fr}
+  .photo-strip{flex-direction:column}
+  .photo-strip img{width:100%;height:50vh}
+  .footer-inner{grid-template-columns:1fr;text-align:center;gap:26px}
+  .footer-right{text-align:center}
+}
+
+
+/* BLANK PAGE CONTENT */
+.blank-page{
+  margin-top:110px; /* fixed nav offset */
+  min-height:72vh;
+  background:var(--cream);
+  display:flex;
+  align-items:center;
+}
+.blank-inner{
+  width:min(1100px, 92vw);
+  margin:0 auto;
+  padding:96px 0;
+}
+.blank-inner h1{
+  font-weight:900;
+  letter-spacing:-0.02em;
+  color:var(--navy);
+  font-size:clamp(34px,4.2vw,56px);
+  margin-bottom:14px;
+}
+.blank-inner p{
+  font-size:18px;
+  max-width:780px;
+  line-height:1.7;
+  color:rgba(18,48,83,.9);
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <img src="assets/logo.png">
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="teams.html">Teams</a>
+      <a href="training.html">Training</a>
+      <a href="alumni.html">Alumni</a>
+      <a href="merch.html">Merch</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</header>
+
+
+    <main class="blank-page" aria-label="Alumni content">
+      <div class="blank-inner">
+        <h1>Alumni</h1>
+        <p>This page is coming soon.</p>
+      </div>
+    </main>
+    
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <img src="assets/logo.png">
+    </div>
+    <div class="footer-center">
+      © 2025 Lake Shore Legends Basketball<br>
+      coachgiopag@gmail.com · (224) 425-9490
+    </div>
+    <div class="footer-right">
+      <a href="#"><i class="fa-solid fa-envelope"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
